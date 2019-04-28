@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Header from "./Header"
-import "./Layout.css"
+import Header from './Header';
+import './Layout.css';
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -19,12 +19,13 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title
+            author
           }
         }
       }
     `}
     render={data => (
-      <>
+      <Fragment>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
@@ -35,19 +36,19 @@ const Layout = ({ children }) => (
           }}
         >
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {' '}
+          <footer style={{ textAlign: 'center' }}>
+            Copyright &copy; {new Date().getFullYear()}{' '}
+            {data.site.siteMetadata.author}, Built with{' '}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
         </div>
-      </>
+      </Fragment>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
