@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Divider } from 'antd';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -34,6 +35,8 @@ const Post = props => {
           className="post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
+        <Divider style={{ fontWeight: 'lighter', fontStyle: 'italic' }}>End</Divider>
       </div>
     </Layout>
   );
