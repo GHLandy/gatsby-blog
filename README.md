@@ -4,7 +4,7 @@
 
 ## How to use
 
-Move to [Usage Detail](./markdown/usage-detail.md) for detail.
+Move to [Usage Detail](./markdown/usage-detail.md) ([使用详情](./markdown/usage-detail-zh.md)) for detail.
 
 ## Licence
 

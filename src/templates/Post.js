@@ -21,7 +21,6 @@ const Post = props => {
   const {
     data: { markdownRemark: post },
   } = props;
-  console.log('post', post);
 
   return (
     <Layout>
@@ -29,8 +28,8 @@ const Post = props => {
         title={post.frontmatter.title}
         keywords={['gatsby', 'application', 'react']}
       />
-      <div className="post">
-        <h1>{post.frontmatter.title}</h1>
+      <div className="site-post">
+        <h1 style={{ textAlign: 'center' }}>{post.frontmatter.title}</h1>
         <div
           className="post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}

@@ -14,6 +14,8 @@ _Not meeting your need? You may want to check out vibrant collection of [officia
 
     Use the Gatsby CLI to create a new site, specifying a gatsby template.
 
+    This need a `node` environment and `npm` tool. Move to [nodejs.org](https://nodejs.org/en/download/) for detail.
+
     ```bash
     # create a new Gatsby site using the gatsby-blog-ghlandy
     gatsby new my-gatsby-blog https://github.com/GHLandy/gatsby-blog
@@ -21,9 +23,8 @@ _Not meeting your need? You may want to check out vibrant collection of [officia
 
 1.  **Install dependencies.**
 
-    This need a `node` environment and `npm` tool. Move to [nodejs.org](https://nodejs.org/en/download/) for detail.
-
     ```bash
+    cd my-gatsby-blog
     npm i
     ```
 
@@ -32,9 +33,9 @@ _Not meeting your need? You may want to check out vibrant collection of [officia
     Use your favorite editor, vim for example, to edit `config.js`,
 
     ```bash
-    cd my-gatsby-blog
     vim config.js
     ```
+
     as below,
 
     ```javascript
@@ -79,6 +80,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── src
     ├── .gitignore
     ├── .prettierrc
+    ├── config.js
     ├── gatsby-browser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
@@ -97,21 +99,23 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 5.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-6.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+6.  **`.prettierrc`**: A simple config file of site info.
 
-7.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+7.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-8.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+8.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-9.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+9.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-10.  **`LICENSE`**: This blog template is licensed under the MIT license, powered by Gatsby.
+10.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-11. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+11.  **`LICENSE`**: This blog template is licensed under the MIT license, powered by Gatsby.
 
-12. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+12. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-13. **`README.md`**: A text file containing useful reference information about your project.
+13. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+
+14. **`README.md`**: A text file containing useful reference information about your project.
 
 ## 🎓 Learning Gatsby
 

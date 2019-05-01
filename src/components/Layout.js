@@ -7,12 +7,12 @@
 
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, Link, graphql } from 'gatsby';
+import { BackTop, Layout, Row, Col } from 'antd';
 
-import Header from './Header';
-import './Layout.css';
+const { Header, Content, Footer } = Layout;
 
-const Layout = ({ children }) => (
+const SiteLayout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -26,29 +26,34 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <Fragment>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer style={{ textAlign: 'center' }}>
+        <Layout style={{ minHeight: '100vh' }}>
+          <Header className="site-header">
+            <Link to="/">{data.site.siteMetadata.title}</Link>
+          </Header>
+
+          <Content>
+            <Row type="flex" justify="center">
+              <Col xs={22} sm={22} md={20} lg={18} xl={16}>
+                {children}
+              </Col>
+            </Row>
+          </Content>
+
+          <Footer style={{ textAlign: 'center' }}>
             Copyright &copy; {new Date().getFullYear()}{' '}
             {data.site.siteMetadata.author}, Built with{' '}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
+          </Footer>
+        </Layout>
+
+        <BackTop />
       </Fragment>
     )}
   />
 );
 
-Layout.propTypes = {
+SiteLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Layout;
+export default SiteLayout;

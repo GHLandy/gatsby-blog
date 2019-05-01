@@ -1,0 +1,46 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ol,
+ul {
+  padding-left: 2em;
+}
+
+p {
+  font-size: 16px;
+}
+
+:not(pre) > code[class*='language-'] {
+  padding: 0 0.2em;
+  border-radius: 0.2em;
+}
+
+.site-header {
+  padding: 0 15px !important;
+  font-size: 20px;
+}
+
+.site-header a {
+  color: #fff;
+}
+
+.site-posts {
+  padding-top: 10px;
+}
+
+.site-posts .post-item {
+  margin-bottom: 20px;
+}
+
+.site-post {
+
+}

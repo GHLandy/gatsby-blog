@@ -15,10 +15,7 @@ module.exports = {
 
     return graphql(`
       {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          limit: 10
-        ) {
+        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
           edges {
             node {
               frontmatter {
