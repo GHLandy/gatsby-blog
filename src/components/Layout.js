@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, Link, graphql } from 'gatsby';
-import { BackTop, Layout, Row, Col } from 'antd';
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, Link, graphql } from 'gatsby'
+import { BackTop, Layout, Row, Col } from 'antd'
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content, Footer } = Layout
 
 const SiteLayout = ({ children }) => (
   <StaticQuery
@@ -50,10 +50,10 @@ const SiteLayout = ({ children }) => (
       </Fragment>
     )}
   />
-);
+)
 
 SiteLayout.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}
 
-export default SiteLayout;
+export default SiteLayout

@@ -43,7 +43,7 @@ _没有达到你的要求？或者你可以看看那些 [官方及社区创建�
       title: '自己站点的标题',
       description: '自己站点的描述',
       author: '自己的昵称',
-    };
+    }
     ```
 
 1.  **写一篇自己的文章.**
@@ -107,9 +107,9 @@ Gatsby 的项目结构如下：
 
 9.  **`gatsby-node.js`**: 请移步 [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/)。
 
-10.  **`gatsby-ssr.js`**: 请移步 [Gatsby server-side rendering API](https://www.gatsbyjs.org/docs/ssr-apis/)。
+10. **`gatsby-ssr.js`**: 请移步 [Gatsby server-side rendering API](https://www.gatsbyjs.org/docs/ssr-apis/)。
 
-11.  **`LICENSE`**: MIT license。
+11. **`LICENSE`**: MIT license。
 
 12. **`package-lock.json`**: 依赖版本锁定文件 **(不需要理会)**
 

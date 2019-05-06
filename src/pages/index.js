@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { Divider } from 'antd';
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import { Divider } from 'antd'
 
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       totalCount
       edges {
         node {
@@ -22,14 +22,14 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const IndexPage = props => {
   const {
     data: {
       allMarkdownRemark: { edges: posts },
     },
-  } = props;
+  } = props
 
   return (
     <Layout>
@@ -50,7 +50,7 @@ const IndexPage = props => {
         <Divider />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage

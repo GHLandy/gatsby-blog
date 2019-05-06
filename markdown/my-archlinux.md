@@ -1,6 +1,6 @@
 ---
 title: '我的 Arch Linux'
-date: "2018-11-25T09:35:20.000Z"
+date: '2018-11-25T09:35:20.000Z'
 path: '/my-archlinux'
 ---
 
@@ -65,7 +65,7 @@ bbswitch networkmanager fcitx fcitx-im fcitx-configtool
 >
 > `dialog` 命令行 Wi-Fi 连接工具 `wifi-menu` 的依赖，推荐安装
 >
-> `grub``、dosfstools`、`efibootmgr` 启动引导，必装
+> `grub`、`dosfstools`、`efibootmgr` 启动引导，必装
 >
 > `os-prober` 为 `grub` 生成多系统菜单，选装
 >
@@ -123,7 +123,7 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo LC_CTYPE=zh_CN.UTF-8 >> /etc/locale.conf
 ```
 
-> 关于 `locale` 的设置可以参考 [locale的设定及LANG、LC_CTYPE、LC_ALL环境变量](https://www.cnblogs.com/xlmeng1988/archive/2013/01/16/locale.html)
+> 关于 `locale` 的设置可以参考 [locale 的设定及 LANG、LC_CTYPE、LC_ALL 环境变量](https://www.cnblogs.com/xlmeng1988/archive/2013/01/16/locale.html)
 >
 > 我自己是需要设置一个可以输入中文的英文环境
 
@@ -235,7 +235,7 @@ pacman -S google-chrome electronic-wechat
 
 ### Ⅱ、安装一些常用软件
 
-``` bash
+```bash
 # 安装 adobe 开源字体
 pacman -S \
 adobe-source-code-pro-fonts \
@@ -294,4 +294,5 @@ ThemeDir=/usr/share/sddm/themes
 ```
 
 ---
+
 最后，享受你的 Archlinux 之旅。

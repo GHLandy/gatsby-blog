@@ -43,7 +43,7 @@ _Not meeting your need? You may want to check out vibrant collection of [officia
       title: 'your site title',
       description: 'your site description',
       author: 'you nickname',
-    };
+    }
     ```
 
 1.  **Write your personal post.**
@@ -107,9 +107,9 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 9.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-10.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+10. **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-11.  **`LICENSE`**: This blog template is licensed under the MIT license, powered by Gatsby.
+11. **`LICENSE`**: This blog template is licensed under the MIT license, powered by Gatsby.
 
 12. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 

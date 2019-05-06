@@ -1,9 +1,9 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { Divider } from 'antd';
+import React from 'react'
+import { graphql } from 'gatsby'
+import { Divider } from 'antd'
 
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 export const query = graphql`
   query BlogPostByPath($path: String!) {
@@ -16,12 +16,12 @@ export const query = graphql`
       html
     }
   }
-`;
+`
 
 const Post = props => {
   const {
     data: { markdownRemark: post },
-  } = props;
+  } = props
 
   return (
     <Layout>
@@ -36,10 +36,12 @@ const Post = props => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
 
-        <Divider style={{ fontWeight: 'lighter', fontStyle: 'italic' }}>End</Divider>
+        <Divider style={{ fontWeight: 'lighter', fontStyle: 'italic' }}>
+          End
+        </Divider>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post

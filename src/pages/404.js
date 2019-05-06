@@ -1,8 +1,8 @@
-import React from 'react';
-import { Alert } from 'antd';
+import React from 'react'
+import { Alert } from 'antd'
 
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 const NotFoundPage = () => (
   <Layout>
@@ -16,6 +16,6 @@ const NotFoundPage = () => (
       showIcon
     />
   </Layout>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

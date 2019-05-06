@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { ga } from '../config';
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { ga } from '../config'
 
 export default function HTML(props) {
   return (
@@ -52,7 +52,7 @@ export default function HTML(props) {
         </Fragment>
       ) : null}
     </html>
-  );
+  )
 }
 
 HTML.propTypes = {
@@ -62,4 +62,4 @@ HTML.propTypes = {
   preBodyComponents: PropTypes.array,
   body: PropTypes.string,
   postBodyComponents: PropTypes.array,
-};
+}
