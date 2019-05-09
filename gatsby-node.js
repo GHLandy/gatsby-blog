@@ -37,7 +37,7 @@ module.exports = {
           },
         } = res
 
-        posts.map(post =>
+        return posts.map(post =>
           createPage({
             path: post.node.frontmatter.path,
             component: postTemplate,

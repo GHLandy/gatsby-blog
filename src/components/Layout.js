@@ -12,6 +12,8 @@ import { BackTop, Layout, Row, Col } from 'antd'
 
 const { Header, Content, Footer } = Layout
 
+const a = {}
+
 const SiteLayout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -40,8 +42,9 @@ const SiteLayout = ({ children }) => (
           </Content>
 
           <Footer style={{ textAlign: 'center' }}>
-            Copyright &copy; {new Date().getFullYear()}{' '}
-            {data.site.siteMetadata.author}, Built with{' '}
+            Copyright &copy;
+            {new Date().getFullYear()}
+            {data.site.siteMetadata.author}, Built with
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </Footer>
         </Layout>
