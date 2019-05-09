@@ -15,7 +15,7 @@ module.exports = {
 
     return graphql(`
       {
-        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+        allMarkdownRemark {
           edges {
             node {
               frontmatter {

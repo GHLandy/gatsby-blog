@@ -37,6 +37,7 @@ img {
   color: #fff;
 }
 
+/* index */
 .site-posts {
   padding-top: 10px;
 }
@@ -45,5 +46,18 @@ img {
   margin-bottom: 20px;
 }
 
+/* post page */
 .site-post {
+  overflow: auto;
+}
+
+.site-post .post-title {
+  margin-top: 20px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.site-post .post-date {
+  margin-bottom: 10px;
+  font-style: italic;
 }
