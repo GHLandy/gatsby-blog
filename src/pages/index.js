@@ -1,9 +1,14 @@
 import React from 'react'
+import PT from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { Divider } from 'antd'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+
+const propTypes = {
+  data: PT.shape({ allMarkdownRemark: PT.object.isRequired }).isRequired,
+}
 
 export const query = graphql`
   query {
@@ -24,12 +29,10 @@ export const query = graphql`
   }
 `
 
-const IndexPage = props => {
+const IndexPage = ({ data }) => {
   const {
-    data: {
-      allMarkdownRemark: { edges: posts },
-    },
-  } = props
+    allMarkdownRemark: { edges: posts },
+  } = data
 
   return (
     <Layout>
@@ -52,5 +55,7 @@ const IndexPage = props => {
     </Layout>
   )
 }
+
+IndexPage.propTypes = propTypes
 
 export default IndexPage

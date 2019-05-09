@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/forbid-prop-types */
+
 import React, { Fragment } from 'react'
-// import PropTypes from 'prop-types'
+import PT from 'prop-types'
 import { ga } from '../config'
 
 export default function HTML(props) {
@@ -64,11 +68,11 @@ export default function HTML(props) {
   )
 }
 
-// HTML.propTypes = {
-//   htmlAttributes: PropTypes.object,
-//   headComponents: PropTypes.array,
-//   bodyAttributes: PropTypes.object,
-//   preBodyComponents: PropTypes.array,
-//   body: PropTypes.string,
-//   postBodyComponents: PropTypes.array,
-// }
+HTML.propTypes = {
+  htmlAttributes: PT.object,
+  headComponents: PT.array,
+  bodyAttributes: PT.object,
+  preBodyComponents: PT.array,
+  body: PT.string,
+  postBodyComponents: PT.array,
+}

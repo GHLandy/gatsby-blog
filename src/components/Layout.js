@@ -6,13 +6,11 @@
  */
 
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import PT from 'prop-types'
 import { StaticQuery, Link, graphql } from 'gatsby'
 import { BackTop, Layout, Row, Col } from 'antd'
 
 const { Header, Content, Footer } = Layout
-
-const a = {}
 
 const SiteLayout = ({ children }) => (
   <StaticQuery
@@ -56,7 +54,7 @@ const SiteLayout = ({ children }) => (
 )
 
 SiteLayout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PT.node.isRequired,
 }
 
 export default SiteLayout

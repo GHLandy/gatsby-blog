@@ -1,9 +1,14 @@
 import React from 'react'
+import PT from 'prop-types'
 import { graphql } from 'gatsby'
 import { Divider } from 'antd'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+
+const propTypes = {
+  data: PT.shape({ markdownRemark: PT.object.isRequired }).isRequired,
+}
 
 export const query = graphql`
   query($path: String!) {
@@ -17,10 +22,8 @@ export const query = graphql`
   }
 `
 
-const Post = props => {
-  const {
-    data: { markdownRemark: post },
-  } = props
+const Post = ({ data }) => {
+  const { markdownRemark: post } = data
 
   return (
     <Layout>
@@ -45,5 +48,7 @@ const Post = props => {
     </Layout>
   )
 }
+
+Post.propTypes = propTypes
 
 export default Post
