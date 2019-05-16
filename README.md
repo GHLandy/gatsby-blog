@@ -1,5 +1,7 @@
 # gatsby-blog-ghlandy
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eb7e46e5-5ce3-4f30-866a-12b08583ead3/deploy-status)](https://app.netlify.com/sites/musing-saha-b83a71/deploys)
+
 > A modification from [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default)
 
 ## How to use
