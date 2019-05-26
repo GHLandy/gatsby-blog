@@ -59,5 +59,18 @@ img {
 
 .site-post .post-date {
   margin-bottom: 10px;
+  padding-left: 10px;
+  border-left: 3px solid #088fa7;
   font-style: italic;
+}
+
+.site-post .post-content blockquote {
+  padding: 5px 0;
+  padding-left: 10px;
+  border-left: 3px solid #666;
+  background: #ccc;
+}
+
+.site-post .post-content blockquote p:first-child {
+  margin-top: 1em;
 }
