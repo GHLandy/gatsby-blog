@@ -4,7 +4,7 @@ date: '2019-04-30T13:43:31.126Z'
 path: '/usage-detail-zh'
 ---
 
-哈，Gatsby 相当不错！作为一名使用 React 的开发者，我开始尝试使用 gatsby 转化 markdown 来生成自己的博客。也许它也适合你，要是一下吗？
+哈，Gatsby 相当不错！作为一名使用 React 的开发者，我开始尝试使用 gatsby 转化 markdown 来生成自己的博客。也许它也适合你，要试一下吗？
 
 _没有达到你的要求？或者你可以看看那些 [官方及社区创建的起步示例](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
