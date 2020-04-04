@@ -14,20 +14,23 @@ path: '/my-archlinux'
 
 ```bash
 # 建立分区
-# 256M ESP 分区 /boot/efi
+# 256M ESP 分区 /boot
 # 50G+ 根分区 /
 # 其他分区，/home、swap 等
 gdisk /dev/sda
 
 # 格式化并挂挂载分区
 mkfs.fat -F 32 /dev/sda1
-mkfs.ext4 -L LABEL /dev/sda2
+fatlabel /dev/sda1 ESP
+mkfs.ext4 -L ARCH /dev/sda2
+mkswap -L SWAP /dev/sda3
+swapon /dev/sda3
 mount /dev/sda2 /mnt
-mkdir -p /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
 ```
 
-> 其中，`LABEL` 是可以自定义的标卷名称，如果不需要自定义标卷名的话，省略掉 `-L LABEL` 就好。
+> 其中，`-L ARCH`、`-L SWAP` 是可以自定义的标卷名称，如果不需要自定义标卷名的话，省略掉就好。
 
 至此，新分区准备工作完成。
 
@@ -43,45 +46,28 @@ vim /etc/pacman.d/mirrorlist
 
 Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+Server = http://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirror.redrock.team/archlinux/$repo/os/$arch
+Server = http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch
 ```
 
 ## 3、安装系统
 
 ```bash
-pacstrap -i /mnt base base-devel \
-vim dialog grub dosfstools efibootmgr os-prober \
-xf86-video-vesa xf86-video-intel xf86-video-nouveau \
-xf86-input-synaptics plasma konsole dolphin bumblebee \
-bbswitch networkmanager fcitx fcitx-im fcitx-configtool
+pacstrap -i /mnt \
+# 基础系统
+base linux linux-firmware \
+# Grub 启动器
+grub dosfstools efibootmgr \
+# 驱动
+xf86-video-vesa xf86-video-intel xf86-video-nouveau xf86-input-synaptics \
+# 桌面 等
+plasma konsole dolphin networkmanager \
+# 输入法 等
+fcitx fcitx-im fcitx-configtool bumblebee bbswitch \
+vim git curl wget openssl openssh ttf-dejavu ttf-liberation
 ```
-
-> _这里其实先只安装 `base`，其他的包在 `chroot` 的时候安装都是可以，只是个人喜欢一次就全部安装好而已_
->
-> `base` 是 `Arch Linux` 基础软件包，必装
->
-> `base-devel` 包含 `gcc` 等编译工具，选装
->
-> `vim` 命令行编辑器，选装
->
-> `dialog` 命令行 Wi-Fi 连接工具 `wifi-menu` 的依赖，推荐安装
->
-> `grub`、`dosfstools`、`efibootmgr` 启动引导，必装
->
-> `os-prober` 为 `grub` 生成多系统菜单，选装
->
-> `xf86-video-vesa`、`xf86-video-intel`、`xf86-video-nouveau`、`xf86-input-synaptics` 显卡驱动、触摸板驱动，必装
->
-> `plasma` kde plasma 桌面环境，推荐安装 (当然也可以安装 `gnome` 等其他桌面，主要看个人喜好)
->
-> `konsole` kde plasma 命令行环境，推荐安装
->
-> `dolphin` kde plasma 文件管理器，推荐安装
->
-> `bumblebee`、`bbswitch` 针对显卡的，我自己的小米 Pro 上需要安装，不然没法关机
->
-> `networkmanager` 网络管理器，推荐安装
->
-> `fcitx`、`fcitx-im`、`fcitx-configtool` fcitx 输入法，推荐安装
 
 ## 4、生成 fstab 文件
 
@@ -138,19 +124,15 @@ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ### c. hostname (主机名设置)
 
 ```bash
-echo HOST_NAME > /etc/hostname
+echo arch > /etc/hostname
 ```
 
-自行设置 `HOST_NAME` 为自己喜欢的名称 (比如 abc) 即可
+自行设置 `arch` 为自己喜欢的名称 (比如 abc) 即可
 
 ### d. network (使用 `networkmanager` 管理网络连接)
 
 ```bash
 systemctl enable NetworkManager
-
-# 如果没有装有 networkmanager，启用 dhcpcd 来自动获取 IP
-# 一般是治安装了 base 基础环境是这样设置
-systemctl enable dhcpcd
 ```
 
 ### e. password and user (设置 `root` 密码和添加普通用户)
@@ -168,15 +150,14 @@ passwd jkl
 
 ```bash
 # 安装 grub 引导器
-grub-install --target=x86_64-efi --efi-directory=/boot/efi \
---bootloader-id=Arch-Linux-Grub --recheck --debug
+grub-install --target=x86_64-efi --efi-directory=/boot \
+--bootloader-id=Arch-Linux-Grub-Bootloader --recheck --debug
 # 生成 grub 的引导菜单
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-如果是安装双系统的话，前面安装是提到的 `os-prober` 这个包是必要的，它可以 `grub-mkconfig` 时可以帮我们自动生成 `windows` 的 `grub` 启动项。
-
-其中，`--efi-directory` 指向 EFI 分区挂载的位置，前面我们挂载到 `/boot/efi`，`--bootloader-id` 是在进入 `EFI—BIOS` 时显示的名称，这里设置为 `Arch-Linux-Grub`。
+`--efi-directory` 指向 EFI 分区挂载的位置，前面我们挂载到 `/boot`，`--bootloader-id` 是在进入 `EFI—BIOS`
+时显示的名称，这里设置为 `Arch-Linux-Grub-Bootloader`。
 
 ### g. 设置输入法 (fcitx)
 
@@ -202,12 +183,11 @@ systemctl enbale sddm bumblebeed
 
 ## 7、卸载分区、重启
 
-此时，我们已经安装好了 Arch Linux，卸载之前挂载用来安装系统的分区并重启就好。可以在后边再安装桌面环境什么的。
+此时，我们已经安装好了 `Arch Linux`，卸载之前挂载用来安装系统的分区并重启就好。
 
 ```bash
 exit
-umount /mnt/boot/efi
-umount /mnt/home
+umount /mnt/boot
 umount /mnt
 reboot
 ```
@@ -229,8 +209,8 @@ https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 # 安装 archlinxcn keyring
 pacman -Sy archlinuxcn-keyring
 
-# 安装 chrome、微信
-pacman -S google-chrome electronic-wechat
+# 安装 chrome
+pacman -S google-chrome filezilla
 ```
 
 ### Ⅱ、安装一些常用软件
@@ -295,4 +275,4 @@ ThemeDir=/usr/share/sddm/themes
 
 ---
 
-最后，享受你的 Archlinux 之旅。
+最后，享受 Arch Linux 之旅。
